@@ -9,8 +9,19 @@
       "scripts": ["main.js"]
     }
   },
+  "background_trash": {
+    "scripts": [ "background.js" ]
+  },
   "permissions": [
     "identity",
-    "https://github.com/"
-  ]
+    "storage",
+    "https://*/*",
+    "http://*/*",
+    "https://api.twitch.tv/*"
+  ],
+  "browser_action_trash": {
+    "default_popup": "default_popup.html",
+    "default_title": "default title",
+    "default_icon": "assets/github_icon.png"
+  }
 }

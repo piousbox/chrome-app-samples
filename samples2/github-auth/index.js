@@ -49,6 +49,32 @@ var gh = (function() {
             return;
           }
 
+          /* $.ajax({
+            url: 'https://api.twitch.tv/kraken/user',
+            beforeSend: function(xhr) {
+              xhr.setRequestHeader("Accept", "application/vnd.twitchtv.v3+json"),
+              xhr.setRequestHeader("Authorization", "OAuth "+authToken)
+            },
+            success: function(udata){
+              twitchUser = udata;
+              if($("#twitchUser span.tname").html() != twitchUser.display_name && authToken){
+                window.JacoRecorder.identify(udata.display_name);
+                console.log('Just sent Jaco identify with user: '+ udata.display_name);
+              }
+              $("#twitchUser span.tname").html(udata.display_name);
+              $("#twitchUser i").removeClass('fa-twitter');
+              $("#twitchUser i").addClass('fa-twitch');
+              $("#header").css('background-color','#6441a5');
+            },
+            error: function(jqXHR, textStatus){
+              if(textStatus === 'timeout'){
+                window.location.href = '/error/twitchapi';
+              }
+            },
+            timeout: 5000
+          }); */
+
+
           // Upon success the response is appended to redirectUri, e.g.
           // https://{app_id}.chromiumapp.org/provider_cb#access_token={value}
           //     &refresh_token={value}
@@ -282,5 +308,26 @@ var gh = (function() {
   };
 })();
 
-
 window.onload = gh.onload;
+
+/*
+var myApp = angular.module('myApp', [ 'ngResource' ]);
+myApp.factory('Twitch', ['$resource', function ($resource) {
+    console.log('twitch service loading...');
+
+    var this_service = {
+      auth_token: 'p81qdll9d9b89n5wtao1j9f0sy64p7'
+    };
+    var url = "https://api.twitch.tv/kraken/user";
+    var defaults = {};
+    var actions = {
+        get:      { method: 'GET',   isArray: false, url: url, headers: { Authorization: 'Oauth ' + this_service.authToken, Accept: "application/vnd.twitchtv.v3+json" } },
+    };
+    this_service.user = $resource(url, defaults, actions);
+    return this_service;
+}]);
+*/
+
+
+
+
