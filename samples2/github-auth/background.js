@@ -1,3 +1,3 @@
 
-console.log('background js loading...');
+// console.log('background js loading...');
 

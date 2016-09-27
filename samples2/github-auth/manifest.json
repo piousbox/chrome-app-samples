@@ -1,27 +1,35 @@
 {
-  "name": "GitHub Auth Sample",
-  "version": "3.1",
+  "name": "My Extension from github scaffold",
+  "version": "0.0.1",
   "manifest_version": 2,
   "minimum_chrome_version": "33",
-  "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCXZ6+N4gRLyUUtj79Z3TClsrA32yU9ekkdKXlGylaRhtjMNLN+oBekfDsBfASdkGu35r48v+GiHgCTeySFgm/MfOBavutudcr1Cm/+CD6Y7XSQBMHQn06sJgsMk0eG6FcP797Ofig2MHmouaoHCPfpmXfcbgZZYioh29PWJ6oq7QIDAQAB",
-  "app": {
-    "background": {
-      "scripts": ["main.js"]
-    }
-  },
-  "background_trash": {
-    "scripts": [ "background.js" ]
-  },
   "permissions": [
     "identity",
     "storage",
+    "tabs",
     "https://*/*",
     "http://*/*",
     "https://api.twitch.tv/*"
   ],
-  "browser_action_trash": {
+  "browser_action": {
     "default_popup": "default_popup.html",
-    "default_title": "default title",
+    "default_title": "default title from github scaffold",
     "default_icon": "assets/github_icon.png"
-  }
+  },
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+
+
+
+  "key_trash": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCXZ6+N4gRLyUUtj79Z3TClsrA32yU9ekkdKXlGylaRhtjMNLN+oBekfDsBfASdkGu35r48v+GiHgCTeySFgm/MfOBavutudcr1Cm/+CD6Y7XSQBMHQn06sJgsMk0eG6FcP797Ofig2MHmouaoHCPfpmXfcbgZZYioh29PWJ6oq7QIDAQAB",
+  "app_trash": {
+    "background": {
+      "scripts": ["main.js"]
+    }
+  },
+  "content_scripts_trash": [{
+    "matches": ["<all_urls>"],
+    "js": ["open-dialog.js"]
+  }]
 }
